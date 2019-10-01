@@ -81,7 +81,7 @@ var handleFormSubmit = function(event) {
   };
 
   if (!(example.petType && example.zip && example.phone && example.name)) {
-    alert("You must enter a pet type, zip code and phone number");
+    alert("You must enter a pet type, zip code, phone number and Name");
     return;
   }
 
