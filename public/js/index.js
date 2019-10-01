@@ -64,6 +64,7 @@ var refreshExamples = function() {
 
     $exampleList.empty();
     $exampleList.append($examples);
+    location = "/customer";
   });
 };
 
@@ -87,7 +88,7 @@ var handleFormSubmit = function(event) {
   API.saveExample(example).then(function() {
     refreshExamples();
   });
-  location = "/customer";
+ 
   $petType.val("");
   $zip.val("");
   $phone.val("");
