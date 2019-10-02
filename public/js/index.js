@@ -107,7 +107,7 @@ var handleFormSubmit = function(event) {
 var handleZipSubmit = function(event) {
   event.preventDefault();
 
-  var zips = $zipEntered.val().trim();
+  var zips = $zipEntered.val();
 
   API.getZip(zips);
 
