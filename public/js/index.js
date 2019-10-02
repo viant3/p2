@@ -16,7 +16,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/profiles",
+      url: "/api/examples",
       data: JSON.stringify(example)
     });
   },
@@ -96,6 +96,7 @@ var handleFormSubmit = function(event) {
   API.saveExample(example).then(function() {
     refreshExamples();
   });
+  location = "/customer";
  
   $petType.val("");
   $zip.val("");
