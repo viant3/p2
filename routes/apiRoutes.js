@@ -14,6 +14,12 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/profiles/:zips", function(req, res) {
+    db.Sitters.findAll({ where: { zip: req.params.zips } }).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
+
   // Create a new example
   app.post("/api/profiles", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) {
@@ -23,8 +29,8 @@ module.exports = function(app) {
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExamples) {
+      res.json(dbExamples);
     });
   });
 };

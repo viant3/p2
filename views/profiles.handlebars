@@ -13,14 +13,16 @@
       </li>
 
       <li class="hidden-xs navbar-search-wrap" data-qa-id="search-sitters-navbar-search-box">
+        <form class="clearfix mb-4" action="/profiles/">
         <div
           class="input-group input-group-sm margin-top-x2 search-location-header-view js-search-location-header-view">
-          <input type="text" class="form-control js-search-location fs-hide" name="location" placeholder="Zip Code"
+          <input type="text" class="form-control js-search-location fs-hide" id="zips" placeholder="Zip Code"
             value="">
           <span class="input-group-btn">
-            <button class="glass-btn rover-btn-primary js-search-search-button" type="button">
+            <button class="glass-btn rover-btn-primary js-search-search-button" id="zipSubmit" type="submit">
               <i class="small material-icons">search</i>
             </button>
+            </form>
           </span>
         </div><!-- /input-group -->
       </li>
@@ -96,6 +98,7 @@
       <div class="card sitters">
         <div class="card-body">
           <h5 class="card-title">Our Sitters</h5>
+          <h5>{{msg}}</h5>
           <table style="width:100%">
             <tr>
               <th>Name</th>

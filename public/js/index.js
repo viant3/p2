@@ -1,10 +1,12 @@
 // Get references to page elements
 var $petType = $("#petType");
 var $zip = $("#zip");
+var $zipEntered = $("#zips");
 var $phone = $("#phone");
 var $name = $("#name");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+var $zipButton = $("#zipSubmit");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -28,6 +30,12 @@ var API = {
     return $.ajax({
       url: "api/profiles",
       type: "GET"
+    });
+  },
+  getZip: function(zips) {
+    return $.ajax({
+      url: "api/profiles/" + zips,
+      type: "POST",
     });
   },
   deleteExample: function(id) {
@@ -95,6 +103,19 @@ var handleFormSubmit = function(event) {
   $name.val("");
 };
 
+
+var handleZipSubmit = function(event) {
+  event.preventDefault();
+
+  var zips = $zipEntered.val().trim();
+
+  API.getZip(zips);
+
+  $zipEntered.val("");
+  location = "/profiles/" + zips;
+};
+
+
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
@@ -108,5 +129,7 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
+
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+$zipButton.on("click", handleZipSubmit);

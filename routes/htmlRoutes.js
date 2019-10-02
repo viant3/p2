@@ -12,10 +12,11 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/profiles/:zips", function(req, res) {
+    db.Sitters.findAll({ where: { zip: req.params.zips } }).then(function(dbSitters) {
+      res.render("profiles", {
+        msg: "with the zip code requested",
+        sitters: dbSitters
       });
     });
   });
