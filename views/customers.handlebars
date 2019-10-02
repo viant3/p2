@@ -6,26 +6,28 @@
 
         <h2>You're on the list!</h2>
         <div class="card">
-        <table border="1px" style="width:100%">
-          <tr>
-            <th>Name</th>
-            <th>Pet Type</th>
-            <th>Phone</th>
-            <th>Zip</th>
-          </tr>
+          <div class="card-body">
+            <table style="width:100%">
+              <tr>
+                <th>Name</th>
+                <th>Pet Type</th>
+                <th>Phone</th>
+                <th>Zip</th>
+              </tr>
 
-          {{#each example}}
-          <tr>
-            <td> {{this.name}}</td>
-            <td>{{this.petType}}</td>
-            <td>{{this.phone}}</td>
-            <td>{{this.zip}}</td>
-          </tr>
-          {{/each}}
+              {{#each example}}
+              <tr>
+                <td> {{this.name}}</td>
+                <td>{{this.petType}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.zip}}</td>
+              </tr>
+              {{/each}}
 
-        </table>
-</div>
-       
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
