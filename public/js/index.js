@@ -49,6 +49,7 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
+    location = "/customer";
     var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(example.petType)
@@ -72,7 +73,7 @@ var refreshExamples = function() {
 
     $exampleList.empty();
     $exampleList.append($examples);
-    location = "/customer";
+ 
   });
 };
 
@@ -96,7 +97,7 @@ var handleFormSubmit = function(event) {
   API.saveExample(example).then(function() {
     refreshExamples();
   });
-  location = "/customer";
+  
  
   $petType.val("");
   $zip.val("");
